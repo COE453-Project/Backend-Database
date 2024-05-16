@@ -1,1 +1,1 @@
-# Medicine-Inventory-Manager-Backend
+# Medicine-Inventory-Manager-Database
