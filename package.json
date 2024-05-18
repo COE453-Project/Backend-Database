@@ -1,0 +1,30 @@
+{
+  "name": "backend-database",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "node_modules\\.bin\\nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/COE453-Project/Backend-Database.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/COE453-Project/Backend-Database/issues"
+  },
+  "homepage": "https://github.com/COE453-Project/Backend-Database#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "express": "^4.19.2",
+    "mongodb": "^6.6.2",
+    "mongoose": "^8.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
