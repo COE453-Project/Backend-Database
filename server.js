@@ -2,6 +2,7 @@ const express = require('express');
 const logResponse = require('./log.js');
 const mongoose = require('mongoose')
 const Medicine = require('./schema.js');
+const getExpiryStatus = require('./helpers.js');
 
 const uri = "mongodb+srv://max0man0:Bvf3i4AIUr3Bal12@medicine-inventory-mana.xxgzvp5.mongodb.net/?retryWrites=true&w=majority&appName=Medicine-Inventory-Manager";
 
@@ -46,6 +47,7 @@ app.post('/', async (req, res, next) => {
         description: description,
         productionDate: productionDate,
         expiryDate: expiryDate,
+        expiryStatus: getExpiryStatus(expiryDate),
         storedAtTimestamp: storedAtTimestamp,
         lastUpdatedAtTimestamp: storedAtTimestamp
     });
@@ -65,10 +67,9 @@ app.post('/', async (req, res, next) => {
         description: description,
         productionDate: productionDate,
         expiryDate: expiryDate,
+        expiryStatus: getExpiryStatus(expiryDate),
         storedAtTimestamp: storedAtTimestamp
     };
-
-      
 
     // Send the response
     res.json(response);
@@ -87,6 +88,7 @@ app.get('/', async (req, res, next) => {
             description: medicine.description,
             productionDate: medicine.productionDate,
             expiryDate: medicine.expiryDate,
+            expiryStatus: getExpiryStatus(medicine.expiryDate),
             storedAtTimestamp: medicine.storedAtTimestamp,
             lastUpdatedAtTimestamp: medicine.lastUpdatedAtTimestamp
         };
@@ -125,6 +127,7 @@ app.put('/:id', async (req, res, next) => {
     medicine.description = description;
     medicine.productionDate = productionDate;
     medicine.expiryDate = expiryDate;
+    medicine.expiryStatus = getExpiryStatus(expiryDate);
     medicine.lastUpdatedAtTimestamp = lastUpdatedAtTimestamp;
 
     // Save the medicine
@@ -140,6 +143,7 @@ app.put('/:id', async (req, res, next) => {
         description: description,
         productionDate: productionDate,
         expiryDate: expiryDate,
+        expiryStatus: getExpiryStatus(expiryDate),
         storedAtTimestamp: medicine.storedAtTimestamp,
         lastUpdatedAtTimestamp: lastUpdatedAtTimestamp
     };
@@ -170,6 +174,7 @@ app.get('/:id', async (req, res, next) => {
         description: medicine.description,
         productionDate: medicine.productionDate,
         expiryDate: medicine.expiryDate,
+        expiryStatus: getExpiryStatus(medicine.expiryDate),
         storedAtTimestamp: medicine.storedAtTimestamp,
         lastUpdatedAtTimestamp: medicine.lastUpdatedAtTimestamp
     };

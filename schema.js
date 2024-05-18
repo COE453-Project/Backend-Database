@@ -6,6 +6,7 @@ const MedicineSchema = new mongoose.Schema({
   description: String,
   productionDate: Date,
   expiryDate: Date,
+  expiryStatus: String,
   storedAtTimestamp: Date,
   lastUpdatedAtTimestamp: Date
 });
