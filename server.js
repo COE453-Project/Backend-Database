@@ -90,7 +90,7 @@ app.get('/', async (req, res, next) => {
             expiryDate: medicine.expiryDate,
             expiryStatus: getExpiryStatus(medicine.expiryDate),
             storedAtTimestamp: medicine.storedAtTimestamp,
-            lastUpdatedAtTimestamp: medicine.lastUpdatedAtTimestamp
+            lastUpdatedTimestamp: medicine.lastUpdatedAtTimestamp
         };
     });
 
